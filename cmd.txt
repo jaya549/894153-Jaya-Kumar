@@ -1,0 +1,283 @@
+CTS+894153@LTIN280843 MINGW64 ~ (master)
+$ pwd
+/c/Users/894153
+
+CTS+894153@LTIN280843 MINGW64 ~ (master)
+$ mkdir demo
+
+CTS+894153@LTIN280843 MINGW64 ~ (master)
+$ cd demo
+
+CTS+894153@LTIN280843 MINGW64 ~/demo (master)
+$ pwd
+/c/Users/894153/demo
+
+CTS+894153@LTIN280843 MINGW64 ~/demo (master)
+$ git init
+Initialized empty Git repository in C:/Users/894153/demo/.git/
+
+CTS+894153@LTIN280843 MINGW64 ~/demo (master)
+$ ls -a
+./  ../  .git/
+
+CTS+894153@LTIN280843 MINGW64 ~/demo (master)
+$ ls
+
+CTS+894153@LTIN280843 MINGW64 ~/demo (master)
+$ ls .
+
+CTS+894153@LTIN280843 MINGW64 ~/demo (master)
+$ ls -a
+./  ../  .git/
+
+CTS+894153@LTIN280843 MINGW64 ~/demo (master)
+$ vi file1.txt
+
+CTS+894153@LTIN280843 MINGW64 ~/demo (master)
+$ ls
+file1.txt
+
+CTS+894153@LTIN280843 MINGW64 ~/demo (master)
+$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        file1.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+CTS+894153@LTIN280843 MINGW64 ~/demo (master)
+$ git add .
+warning: LF will be replaced by CRLF in file1.txt.
+The file will have its original line endings in your working directory
+
+CTS+894153@LTIN280843 MINGW64 ~/demo (master)
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   file1.txt
+
+
+CTS+894153@LTIN280843 MINGW64 ~/demo (master)
+$ git commit -m "first commit"
+[master (root-commit) 0e92152] first commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file1.txt
+
+CTS+894153@LTIN280843 MINGW64 ~/demo (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+CTS+894153@LTIN280843 MINGW64 ~/demo (master)
+$ git ls-files
+file1.txt
+
+CTS+894153@LTIN280843 MINGW64 ~/demo (master)
+$ git log
+commit 0e921526ff76619e982045bede050534c7f932e7 (HEAD -> master)
+Author: JayaKumar <jaisitams@gmail.com>
+Date:   Mon apr 05 16:44:25 2021 +0530
+
+    first commit
+
+CTS+894153@LTIN280843 MINGW64 ~/demo (master)
+$ git remote add origin https://github.com/jayakumar/repository.git
+
+CTS+894153@LTIN280843 MINGW64 ~/demo (master)
+$ git remote -v
+origin  https://github.com/jayakumar/repository.git (fetch)
+origin  https://github.com/jayakumar/repository.git (push)
+
+CTS+894153@LTIN280843 MINGW64 ~/demo (master)
+$ git push origin master
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 222 bytes | 74.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/jayakumar/repository.git
+ * [new branch]      master -> master
+
+CTS+894153@LTIN280843 MINGW64 ~/demo (master)
+$ git branch jaya
+
+CTS+894153@LTIN280843 MINGW64 ~/demo (master)
+$ git checkout jaya
+Switched to branch 'jaya'
+
+CTS+894153@LTIN280843 MINGW64 ~/demo (jaya)
+$ git ls-files
+file1.txt
+
+CTS+894153@LTIN280843 MINGW64 ~/demo (jaya)
+$ git branch
+  master
+* jaya
+
+CTS+894153@LTIN280843 MINGW64 ~/demo (jaya)
+$ vi file2.txt
+
+CTS+894153@LTIN280843 MINGW64 ~/demo (jaya)
+$ git add .
+warning: LF will be replaced by CRLF in file2.txt.
+The file will have its original line endings in your working directory
+
+CTS+894153@LTIN280843 MINGW64 ~/demo (jaya)
+$ git commit -m "second commit"
+[jaya 040acb3] second commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file2.txt
+
+CTS+894153@LTIN280843 MINGW64 ~/demo (jaya)
+$ git push origin jaya
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 277 bytes | 92.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+remote:
+remote: Create a pull request for 'jaya' on GitHub by visiting:
+remote:      https://github.com/jayakumar/repository/pull/new/jaya
+remote:
+To https://github.com/jayakumar/repository.git
+ * [new branch]      jaya -> jaya
+
+CTS+894153@LTIN280843 MINGW64 ~/demo (jaya)
+$ git checkout master
+Switched to branch 'master'
+
+CTS+894153@LTIN280843 MINGW64 ~/demo (master)
+$ git ls-files
+file1.txt
+
+CTS+894153@LTIN280843 MINGW64 ~/demo (master)
+$ git pull origin https://github.com/jayakumar/repository.git
+fatal: invalid refspec 'https://github.com/jayakumar/repository.git'
+
+CTS+894153@LTIN280843 MINGW64 ~/demo (master)
+$ git pull https://github.com/jayakumar/repository.git master
+From https://github.com/jayakumar/repository
+ * branch            master     -> FETCH_HEAD
+Already up to date.
+
+CTS+894153@LTIN280843 MINGW64 ~/demo (master)
+$ git ls-files
+file1.txt
+
+CTS+894153@LTIN280843 MINGW64 ~/demo (master)
+$ git pull https://github.com/jayakumar/GitLearn.git master
+remote: Enumerating objects: 14, done.
+remote: Counting objects: 100% (14/14), done.
+remote: Compressing objects: 100% (8/8), done.
+remote: Total 14 (delta 1), reused 12 (delta 0), pack-reused 0
+Unpacking objects: 100% (14/14), 1.54 KiB | 7.00 KiB/s, done.
+From https://github.com/jayakumar/GitLearn
+ * branch            master     -> FETCH_HEAD
+fatal: refusing to merge unrelated histories
+
+CTS+894153@LTIN280843 MINGW64 ~/demo (master)
+$ git ls-files
+file1.txt
+
+CTS+894153@LTIN280843 MINGW64 ~/demo (master)
+$ ls-files
+bash: ls-files: command not found
+
+CTS+894153@LTIN280843 MINGW64 ~/demo (master)
+$ ls
+file1.txt
+
+CTS+894153@LTIN280843 MINGW64 ~/demo (master)
+$ git branch
+* master
+  jaya
+
+CTS+894153@LTIN280843 MINGW64 ~/demo (master)
+$ git ls-files master
+
+CTS+894153@LTIN280843 MINGW64 ~/demo (master)
+$ git ls-files
+file1.txt
+
+CTS+894153@LTIN280843 MINGW64 ~/demo (master)
+$ git ls-files jaya
+
+CTS+894153@LTIN280843 MINGW64 ~/demo (master)
+$ git checkout jaya
+Switched to branch 'jaya'
+
+CTS+894153@LTIN280843 MINGW64 ~/demo (jaya)
+$ git ls-files
+file1.txt
+file2.txt
+
+CTS+894153@LTIN280843 MINGW64 ~/demo (jaya)
+$ git checkout master
+Switched to branch 'master'
+
+CTS+894153@LTIN280843 MINGW64 ~/demo (master)
+$ git ls-files
+file1.txt
+
+CTS+894153@LTIN280843 MINGW64 ~/demo (master)
+$ git merge jaya
+Updating 0e92152..040acb3
+Fast-forward
+ file2.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file2.txt
+
+CTS+894153@LTIN280843 MINGW64 ~/demo (master)
+$ git ls-files
+file1.txt
+file2.txt
+
+CTS+894153@LTIN280843 MINGW64 ~/demo (master)
+$ git push origin master
+Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/jayakumar/repository.git
+   0e92152..040acb3  master -> master
+
+CTS+894153@LTIN280843 MINGW64 ~/demo (master)
+$ git checkout jaya
+Switched to branch 'jaya'
+
+CTS+894153@LTIN280843 MINGW64 ~/demo (jaya)
+$ git pull master
+fatal: 'master' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+CTS+894153@LTIN280843 MINGW64 ~/demo (jaya)
+$ git ls-files
+file1.txt
+file2.txt
+
+CTS+894153@LTIN280843 MINGW64 ~/demo (jaya)
+$ git add file1.txt
+
+CTS+894153@LTIN280843 MINGW64 ~/demo (jaya)
+$ git ls-files
+file1.txt
+file2.txt
+
+CTS+894153@LTIN280843 MINGW64 ~/demo (jaya)
+$ git pull origin master
+From https://github.com/jayakumar/repository
+ * branch            master     -> FETCH_HEAD
+Already up to date.
+
+CTS+894153@LTIN280843 MINGW64 ~/demo (jaya)
+$ git ls-files
+file1.txt
+file2.txt
